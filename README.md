@@ -1,1 +1,2 @@
-# bricolage-front
+npm install
+bower install
