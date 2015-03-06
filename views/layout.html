@@ -5,24 +5,12 @@
     <title>Bricolage</title>
   </head>
   <body>
-
-    <header>
-      <h1>Bricolage</h1>
-      <nav>
-        <ul>
-          <li>Menu 1</li>
-          <li>Menu 2</li>
-        </ul>
-      </nav>
-    </header>
-
+    {% include 'partials/header.html' %}
+    
     {% block content %}{% endblock %}   
 
-    <footer>
-      &copy; footer
-    </footer>
+    {% include 'partials/footer.html' %}
 
-    <script type="text/javascript" src="/components/angular/angular.js"></script>
-    <script type="text/javascript" src="/js/controller.bricolage.js"></script>
+    {% include 'partials/scripts.html' %}
   </body>
 </html>

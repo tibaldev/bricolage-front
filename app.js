@@ -16,12 +16,14 @@ var express      = require('express')
 app.engine('html', swig.renderFile);
 app.set('port', process.env.PORT || config.local.port);
 app.set('view engine', 'html');
+app.set('view cache', false);
 app.set('views', __dirname + '/views');
 app.set('env', process.env.ENV || config.local.env);
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static(__dirname + '/public'));
+swig.setDefaults({ cache: false });
 
 
 /**
