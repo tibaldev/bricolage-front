@@ -1,11 +1,9 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-  <div class="container">
+  <div class="container" ng-controller="Main">
     <p>
-      bloc content
-      {{ item }}
-      {{ item + 1 }}
+        {{data.keywords}}
     </p>
   </div>
-{% endblock %} 
+{% endblock %}

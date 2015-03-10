@@ -1,3 +1,5 @@
+var data = require(__base + 'json/data.json');
+
 exports.index = function (req, res) {
-  res.render('index', { item : 12 });
+  res.render('index', { data: data });
 }
