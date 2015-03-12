@@ -1,9 +1,12 @@
-var app = angular.module('app', ['gs.preloaded']);
+var app = angular.module('app', ['gs.preloaded', 'ui.bootstrap']);
 
-app.service('localdata', ['$preloaded', function($preloaded){
-  this.keywords = $preloaded
+
+// récupération des data passées par le serveur node
+app.service('locals', ['$preloaded', function($preloaded){
+  this.keywords = $preloaded.keywords;
 }])
 
-app.controller('Main', ['$scope', 'localdata', function($scope, localdata) {
-  console.log('localdata', localdata);
+
+app.controller('KeywordSearch', ['$scope', 'locals', function($scope, locals) {
+  $scope.keywords = locals.keywords;
 }]);

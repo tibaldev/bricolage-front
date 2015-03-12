@@ -3,10 +3,11 @@
   <head>
     <meta charset="utf-8">
     <title>Bricolage</title>
+    <link rel="stylesheet" href="/css/bootstrap.css">
     <script type="text/preloaded">{{ data | json | raw }}</script>
   </head>
   <body>
-    {# {% include 'partials/header.html' %} #}
+    {% include 'partials/header.html' %}
     
     {% block content %}{% endblock %}   
 

@@ -1,7 +1,12 @@
 <header>
-  <h1>Bricolage</h1>
+  <h1></h1>
   <nav>
-    <ul>
-  </ul>
+    <div ng-controller="KeywordSearch">
+      <label for="keyword">Recherche par tags</label>
+      <input autofocus id="keyword" type="text" ng-model="keyword" typeahead="keyword for keyword in keywords | filter:$viewValue | limitTo:8" class="form-control">
+    </div>
   </nav>
 </header>
+
+
+
