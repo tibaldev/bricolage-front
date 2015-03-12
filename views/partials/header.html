@@ -1,11 +1,16 @@
 <header>
-  <h1></h1>
-  <nav>
-    <div ng-controller="KeywordSearch">
-      <label for="keyword">Recherche par tags</label>
-      <input autofocus id="keyword" type="text" ng-model="keyword" typeahead="keyword for keyword in keywords | filter:$viewValue | limitTo:8" class="form-control">
+  <div class="row">
+    <div class="col-xs-2">
+      <h1>Bricolage</h1>
     </div>
-  </nav>
+    <div class="col-xs-10">
+      <nav>
+        <div ng-controller="KeywordSearch">
+          <input autofocus placeholder="Recherche par mot-clés : angular, nodejs"id="keyword" type="text" ng-model="keyword" typeahead="keyword for keyword in keywords | filter:$viewValue | limitTo:8" class="form-control">
+        </div>
+      </nav>
+    </div>
+  </div>
 </header>
 
 

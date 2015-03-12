@@ -7,12 +7,14 @@
     <script type="text/preloaded">{{ data | json | raw }}</script>
   </head>
   <body>
-    {% include 'partials/header.html' %}
-    
-    {% block content %}{% endblock %}   
+    <div class="container-fluid"> 
+      {% include 'partials/header.html' %}
+      
+      {% block content %}{% endblock %}   
 
-    {# {% include 'partials/footer.html' %} #}
+      {# {% include 'partials/footer.html' %} #}
 
-    {% include 'partials/scripts.html' %}
+      {% include 'partials/scripts.html' %}
+    </div>
   </body>
 </html>
