@@ -1,16 +1,15 @@
 <header>
-  <div class="row">
-    <div class="col-xs-2">
-      <h1>Bricolage</h1>
-    </div>
-    <div class="col-xs-10">
-      <nav>
-        <div ng-controller="KeywordSearch">
-          <input autofocus placeholder="Recherche par mot-clés : angular, nodejs"id="keyword" type="text" ng-model="keyword" typeahead="keyword for keyword in keywords | filter:$viewValue | limitTo:8" class="form-control">
-        </div>
-      </nav>
-    </div>
-  </div>
+    <h1>Bricolage</h1>
+    <nav>
+      <div ng-controller="KeywordSearch">
+        <input ng-model="keywordSearch" placeholder="Recherche par mot-clés : angular, nodejs" id="keyword" type="text" typeahead="keyword for keyword in keywords | filter:$viewValue" autofocus>
+      </div>
+      <div ng-controller="KeywordList">
+        <ul>
+            <li ng-model="keywordList" ng-repeat="keyword in keywords | orderBy:keyword">[[keyword]]</li>
+        </ul>
+      </div>
+    </nav>
 </header>
 
 
