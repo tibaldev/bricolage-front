@@ -22,6 +22,6 @@ var data  = {
 
 
 
-exports.index = function (req, res) {
-  res.render('index', { data: data });
+exports.index = function (request, reply) {
+  reply.view('index', {data: data});
 }

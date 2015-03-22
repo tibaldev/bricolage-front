@@ -1,0 +1,9 @@
+{
+  "server": {
+    "connection": {
+      "host": "localhost",
+      "port": 1234
+    }
+  },
+  "production": false
+}
