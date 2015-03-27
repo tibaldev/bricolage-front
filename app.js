@@ -21,12 +21,21 @@ server.views({
 // Routes
 server.route({
   method: 'GET',
-  path: '/{path*}',
+  path: '/assets/{path*}',
   handler: {
     directory: {
       path: 'public',
       listing: false
     }
+  }
+});
+
+server.route({ 
+  method: 'GET', 
+  path: '/{path*}',
+  handler: function (request, reply) {
+    // redirection pas tip top, faire plutôt une belle 404 avec une vue adaptée
+    reply.redirect('/');
   }
 });
 
