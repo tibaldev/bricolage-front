@@ -23,5 +23,10 @@ var data  = {
 
 
 exports.index = function (request, reply) {
+  console.log('truc');
   reply.view('index', {data: data});
+}
+
+exports.notfound = function (request, reply) {
+  reply.view('404', {data: data}).code(404);
 }

@@ -1,9 +1,10 @@
-var app = angular.module('app', ['gs.preloaded', 'ui.bootstrap'], function ($interpolateProvider) {
-  // Conflits avec le template Swig, on remplace la syntaxe Angular {{ }} par [[ ]]
+var app = angular.module('app', ['gs.preloaded', 'ui.bootstrap']);
+
+app.config(['$interpolateProvider', function ($interpolateProvider) {
+  // conflits avec le template swig, on remplace la syntaxe Angular {{ }} par [[ ]]
   $interpolateProvider.startSymbol('[[');
   $interpolateProvider.endSymbol(']]');
-}); 
-
+}])
 
 // récupération des data passées par le serveur node
 app.service('locals', ['$preloaded', function ($preloaded){

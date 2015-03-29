@@ -1,13 +1,18 @@
 module.exports = {
   src: {
-    js: './public/js',
-    css: './public/css',
-    lib: './public/components'
+    js: './assets/js',
+    css: './assets/css',
+    jslib: './assets/js/lib',
+    csslib: './assets/css/lib',
+    components: './assets/components',
+    server: {
+      views: './views',
+      controller: './controller'
+    }
   },
   dist: {
     _: './dist',
     js: './dist/js',
-    css: './dist/css',
-    lib: './dist/lib'
+    css: './dist/css'
   }
 }

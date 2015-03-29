@@ -1,6 +1,5 @@
 var Hapi = require('hapi');
-var Path = require('path');
-var Good = require('good');
+// var Path = require('path');
 var Swig = require('swig');
 
 var config     = require('./config/default');
@@ -8,60 +7,71 @@ var controller = require('./controller/index');
 
 var server = new Hapi.Server();
 server.connection(config.server.connection);
+Swig.setDefaults({ 
+  cache: false,
+  locals: require(__dirname + '/config/locals.js'), 
+});
 
-// Configuration des vues
+// configuration des vues
 server.views({
   engines: {
-    html: require('swig')
+    html: Swig
   },
+  isCached: false,
   relativeTo: __dirname,
   path: './views'
 });
 
-// Routes
-server.route({
-  method: 'GET',
-  path: '/assets/{path*}',
-  handler: {
-    directory: {
-      path: 'public',
-      listing: false
-    }
-  }
-});
 
-server.route({ 
-  method: 'GET', 
-  path: '/{path*}',
-  handler: function (request, reply) {
-    // redirection pas tip top, faire plutôt une belle 404 avec une vue adaptée
-    reply.redirect('/');
-  }
-});
 
+// index
 server.route({
   method: 'GET',
   path: '/',
   handler: controller.index
 });
 
-// Serveur
-server.register({
-  register: Good,
-  options: {
-    reporters: [{
-      reporter: require('good-console'),
-      args:[{ log: '*', response: '*' }]
-    }]
-  }
-}, function (err) {
-  if (err) {
-    throw err; // something bad happened loading the plugin
-  }
 
-  server.start(function () {
-    server.log('info', 'PAF : ' + server.info.uri);
-  });
+// 404
+server.route({ 
+  method: 'GET', 
+  path: '/{path*}',
+  handler: controller.notfound
+});
+
+
+// fichiers statics
+server.route({
+  method: 'GET',
+  path: '/dist/{path*}',
+  handler: {
+    directory: {
+      path: 'dist',
+      listing: false
+    }
+  }
+});
+
+
+// serveur
+server.register([
+  {
+    register: require('good'),
+    options: {
+      reporters: [{
+        reporter: require('good-console'),
+        args:[{ log: '*', response: '*' }]
+      }]
+    }
+  }
+], function (err) {
+    if (err) {
+      throw err; // something bad happened loading the plugin
+    }
+
+    server.start(function () {
+      server.log('info', 'PAF : ' + server.info.uri);
+    });
 });
 
 

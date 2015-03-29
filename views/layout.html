@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <title>Bricolage</title>
-    <link rel="stylesheet" href="/assets/css/bootstrap.css">
-    <link rel="stylesheet" href="/assets/css/highlight/tomorrow-night.css">
+    <link rel="stylesheet" href="/dist/css/lib.min.css">
+    <link rel="stylesheet" href="/dist/css/app.min.css">
     <script type="text/preloaded">{{ data | json | raw }}</script>
   </head>
   <body>
@@ -13,11 +13,11 @@
       {% block content %}{% endblock %}   
     </div>
     
-    <script type="text/javascript" src="/assets/lib/angular/angular.js"></script>
-    <script type="text/javascript" src="/assets/lib/angular-bootstrap/ui-bootstrap.js"></script>
-    <script type="text/javascript" src="/assets/lib/angular-bootstrap/ui-bootstrap-tpls.js"></script>
-    <script type="text/javascript" src="/assets/lib/angular-preloaded/build/angular-preloaded.js"></script>
-    <script type="text/javascript" src="/assets/js/controller.app.js"></script>
-    <script type="text/javascript" src="/assets/js/highlight.pack.js"></script>
+    <script type="text/javascript" src="/dist/js/lib.min.js"></script>
+    <script type="text/javascript" src="/dist/js/app.min.js"></script>
+
+    {% if (isProduction() === false) %}
+      <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+    {% endif %}
   </body>
 </html>
