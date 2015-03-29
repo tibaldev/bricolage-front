@@ -8,14 +8,11 @@ module.exports = function() {
 
   gulp.watch(paths.src.js + '/**/*', ['scripts']);
   gulp.watch(paths.src.css + '/**/*', ['styles']);
+
   gulp.watch(paths.src.components + '/**/*', ['scripts', 'styles']);
+  
   gulp.watch([
     paths.dist._ + '/**',
     paths.src.server.views + '/**/*',
   ], server.refresh);
-
-  gulp.watch([
-    config.server.file,
-    paths.src.server.controller + '/**/*'
-  ], server.reload);
 }

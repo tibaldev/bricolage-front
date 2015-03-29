@@ -52,6 +52,17 @@ server.route({
   }
 });
 
+server.route({
+  method: 'GET',
+  path: '/tpls/{path*}',
+  handler: {
+    directory: {
+      path: 'views/tpls',
+      listing: false
+    }
+  }
+});
+
 
 // serveur
 server.register([

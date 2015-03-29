@@ -3,8 +3,7 @@
 {% block content %}
 
   <div ng-controller="Main">
-    
-
+    <div ng-repeat="tpl in tpls" ng-include="'tpls/' + [[tpl]]"></div>
   </div>
 
 {% endblock %}
