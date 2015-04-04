@@ -1,0 +1,19 @@
+ANGULAR
+-------
+-> Tags :
+    - Afficher les templates concerné par le mot clé sélectionné (tout afficher sinon)
+    - Liste de tags façon contact gmail (http://mbenford.github.io/ngTagsInput/)
+
+
+CSS
+---
+-> plugin grid responsive (léger) (http://www.responsivegridsystem.com/)
+-> tpls dans des blocs carrés
+-> styliser les onglets et le typehead
+-> rendre le tout beau
+
+
+SERVEUR
+-------
+-> notion de date peut être associée au template pour un affichage du plus récent au plus ancien 
+

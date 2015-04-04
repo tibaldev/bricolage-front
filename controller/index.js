@@ -5,17 +5,11 @@ var data = {
 };
 
 exports.index = function (request, reply) {
-
-  // fsUtils.getData().then(function (data) {
-  //   console.log(data);
   fsUtils.getData().then(function (data) {
-    console.log(data);
-    reply.view('index', {data: data});
-  })
-  // });
-
+    reply.view('index', { data: data });
+  });
 }
 
 exports.notfound = function (request, reply) {
-  reply.view('404', {data: data}).code(404);
+  reply.view('404', { data: data }).code(404);
 }

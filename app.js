@@ -23,24 +23,7 @@ server.views({
 });
 
 
-
-// index
-server.route({
-  method: 'GET',
-  path: '/',
-  handler: controller.index
-});
-
-
-// 404
-server.route({ 
-  method: 'GET', 
-  path: '/{path*}',
-  handler: controller.notfound
-});
-
-
-// fichiers statics
+// fichiers statics 
 server.route({
   method: 'GET',
   path: '/dist/{path*}',
@@ -52,6 +35,16 @@ server.route({
   }
 });
 
+
+// index
+server.route({
+  method: 'GET',
+  path: '/',
+  handler: controller.index
+});
+
+
+// tpls
 server.route({
   method: 'GET',
   path: '/tpls/{path*}',
@@ -61,6 +54,14 @@ server.route({
       listing: false
     }
   }
+});
+
+
+// 404
+server.route({ 
+  method: 'GET', 
+  path: '/{path*}',
+  handler: controller.notfound
 });
 
 

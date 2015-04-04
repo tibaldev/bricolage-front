@@ -9,15 +9,13 @@ gulp.task('styles', require('./gtasks/styles'));
 // dist
 gulp.task('dist', [
   'clean',
-
   'scripts',
   'styles'
 ]);
 
-gulp.task('watch', ['dist'], require('./gtasks/watch'));
 gulp.task('server', ['dist'], require('./gtasks/server').start);
+gulp.task('watch', ['dist'], require('./gtasks/watch'));
 gulp.task('default', [
-  'dist',
   'server',
   'watch'
 ]);

@@ -1,15 +1,6 @@
 var fs = require('fs');
 var q = require('q');
 
-// exports.getTpls = function () {
-//   var deferred = q.defer();
-//   fs.readdir ('./views/tpls', function (err, files) {
-//     if (err) throw err;
-//     deferred.resolve(files);
-//   });
-//   return deferred.promise;
-// }
-
 
 exports.getData = function () {
   var deferred = q.defer();
